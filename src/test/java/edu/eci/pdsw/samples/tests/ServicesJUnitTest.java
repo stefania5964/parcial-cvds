@@ -18,18 +18,19 @@ package edu.eci.pdsw.samples.tests;
 
 import edu.eci.pdsw.samples.entities.Paciente;
 import edu.eci.pdsw.samples.entities.Consulta;
+import edu.eci.pdsw.samples.entities.TipoIdentificacion;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
 import edu.eci.pdsw.samples.services.ServiciosPacientesFactory;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 /**
  *
@@ -67,6 +68,7 @@ public class ServicesJUnitTest {
     public void pruebaCeroTest() throws SQLException, ExcepcionServiciosSuscripciones {
         //Insertar datos en la base de datos de pruebas, de acuerdo con la clase
         //de equivalencia correspondiente
+        //ARRANGE
         Connection conn=getConnection();
         Statement stmt=conn.createStatement();
 
@@ -77,17 +79,22 @@ public class ServicesJUnitTest {
         conn.close();
 	
         //Realizar la operacion de la logica y la prueba
-        
-        
-        List<Paciente> pacientes = ServiciosPacientesFactory.getInstance().getTestingForumServices().consultarPacientes();
-
-        
-        for (Paciente paciente : pacientes){
-            System.out.println(paciente);
-        }
+        /**se crea el paciente*/
+        Paciente pruebaPaciente = new Paciente(9876, TipoIdentificacion.TI,"Carmenzo",new Date(805352400000L));
+        /**se crea la consulta*/
+        Consulta pruebaConsulta = new Consulta(new Date(1220227200),"varicela" );
+        /**se cambia el id de la consulta por el que nos dan arriba*/
+        pruebaConsulta.setId(1262218);
+        List<Consulta>consultas = new ArrayList<>();
+        /**se añade la consulta ya que es de una de los dos tipos o varicela o hepatitis*/
+        consultas.add(pruebaConsulta);
+        pruebaPaciente.setConsultas(consultas);
+        //ACT
+        /** se busca el paciente por su id*/
+        Paciente paciente = ServiciosPacientesFactory.getInstance().getTestingForumServices().consultarPacientesPorId(9876, TipoIdentificacion.TI);
         //assert ...
         Assert.fail("Pruebas no implementadas aun...");
-        
+        assertEquals(pruebaPaciente, paciente);
     }    
     
 

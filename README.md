@@ -1,26 +1,7 @@
 ## Escuela Colombiana de Ingeniería
-
-### PDSW – Procesos de desarrollo de Software
 ### Parcial Segundo Tercio
 
-
-**IMPORTANTE**
-
-* Deseable Trabajar en Linux (para evitar problemas con las instrucciones finales).
-* Se puede consultar en la Web: APIs/Documentación de lenguaje y frameworks (Primefaces, Guice, MyBatis, etc), y enunciados de los laboratorios (se pueden revisar los fuentes incluidos con los dichos enunciados).
-* No se permite: Usar memorias USB, acceder a redes sociales, clientes de correo, o sistemas de almacenamiento en la nube (Google Drive, DropBox, etc). El uso de éstos implicará anulación.
-* Clone el proyecto con GIT, NO lo descargue directamente.
-* NO modifique los indicado en consultaPaciente.xhtml.
-* El filtrado y ordenamiento de los datos DEBE realizarse en el motor de base de datos, a través del uso de SQL. Consultar todos los datos y filtrarlos en el servidor de aplicaciones -que es supremamente INEFICIENTE- se evaluará como INCORRECTO.
-
-
-Se le han dado los fuentes de un avance parcial de una plataforma de consultas de pacientes de una IPS en línea. En esta plataforma los médicos podrán registrar y buscar pacientes así como buscar y registrar las consultas.
-Adicionalmente, la secretaria de salud puede hacer búsquedas para control epidemiológico.
-
-Para el Sprint en curso, se han seleccionado las siguientes historias de usuario del Backlog de producto:
-
-Recuerde que en el formato XML no se puede utilizar '<' y '>', por ejemplo al realizar comparaciones, 
- utilice '&amp;lt;' o '&amp;gt;' respectivamente. 
+# STEFANIA GIRALDO BUITRAGO
 
 ## Historia de usuario #1
 
@@ -62,7 +43,20 @@ Mostrar los pacientes menores de edad que en sus consultas se encuentren las enf
     *consultarPacientesPorId* y *consultarMenoresConEnfermedadContagiosa* de la fachada de
     servicios (la parte lógica de la aplicación), implemente sólo una prueba (la que considere más importante para validar las especificaciones y los criterios de aceptación). Siga el esquema usado en ServicesJUnitTest para poblar la base de datos volátil y verificar el comportamiento de las operaciones de la lógica.
 
+![](./img/2.png)
+para las pruebas lo que se hizo fue ubicar el patron AAA
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+>**Arrange** (*Organizar*): Inicializa los objetos y establece los valores de los datos que vamos a utilizar en el test que lo contiene
+>
+>**Act** (*Actuar*): Ejecuta el metodo o la acción que vamos a probar
+>
+>**Asssert** (*Confirmar*): Comprueba que el método de pruebas ejecutado se comporta como teníamos previsto que lo hiciera
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+![](./img/3.png)
 2.  (40%) Implemente la historia de usuario #1, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en consultaPaciente.xhtml.
+![](./img/4.png)
+lo primero que se hizo es cambiar la contraseña ya que las creedenciales no son las correctas
+![](./img/5.png)
 
 3.  (40%)Implemente la historia de usuario #2, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en consultarMenoresEnfermedadContagiosa.xhtml.
 
