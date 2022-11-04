@@ -25,6 +25,10 @@ import edu.eci.pdsw.samples.services.ServiciosPacientesFactory;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -69,6 +73,7 @@ public class ServicesJUnitTest {
         //Insertar datos en la base de datos de pruebas, de acuerdo con la clase
         //de equivalencia correspondiente
         //ARRANGE
+        clearDB();
         Connection conn=getConnection();
         Statement stmt=conn.createStatement();
 
@@ -77,7 +82,7 @@ public class ServicesJUnitTest {
 
         conn.commit();
         conn.close();
-	
+
         //Realizar la operacion de la logica y la prueba
         /**se crea el paciente*/
         Paciente pruebaPaciente = new Paciente(9876, TipoIdentificacion.TI,"Carmenzo",new Date(805352400000L));
@@ -85,6 +90,7 @@ public class ServicesJUnitTest {
         Consulta pruebaConsulta = new Consulta(new Date(1220227200),"varicela" );
         /**se cambia el id de la consulta por el que nos dan arriba*/
         pruebaConsulta.setId(1262218);
+
         List<Consulta>consultas = new ArrayList<>();
         /**se añade la consulta ya que es de una de los dos tipos o varicela o hepatitis*/
         consultas.add(pruebaConsulta);
@@ -95,7 +101,7 @@ public class ServicesJUnitTest {
         //assert ...
         Assert.fail("Pruebas no implementadas aun...");
         assertEquals(pruebaPaciente, paciente);
-    }    
-    
+    }
+
 
 }

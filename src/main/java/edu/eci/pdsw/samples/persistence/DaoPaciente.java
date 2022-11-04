@@ -37,5 +37,6 @@ public interface DaoPaciente {
     public void update(Paciente e) throws PersistenceException;
     
     public void addConsulta(int id, TipoIdentificacion tipoId, Consulta c) throws PersistenceException;
-    
+
+    List<Paciente> loadContagiado() throws PersistenceException;
 }

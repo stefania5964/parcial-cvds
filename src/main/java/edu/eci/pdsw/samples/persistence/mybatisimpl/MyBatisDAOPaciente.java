@@ -37,9 +37,24 @@ public class MyBatisDAOPaciente implements DaoPaciente {
     
     @Override
     public Paciente load(int id, TipoIdentificacion tipoIdentificacion) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            return pacienteMapper.getPacientesPorId(id, tipoIdentificacion);
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
+        }
     }
 
+    @Override
+    public List<Paciente> loadContagiado() throws PersistenceException {
+        try{
+            return pacienteMapper.getEnfermedadContagiosa();
+        }
+        catch(Exception e){
+            throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
+        }
+        
+    }
     @Override
     public List<Paciente> loadAll() throws PersistenceException {
         try{
@@ -48,7 +63,7 @@ public class MyBatisDAOPaciente implements DaoPaciente {
         catch(Exception e){
             throw new PersistenceException("Error al consultar los pacientes:"+e.getLocalizedMessage(), e);
         }
-        
+
     }
 
     @Override

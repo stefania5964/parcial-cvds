@@ -55,31 +55,33 @@ para las pruebas lo que se hizo fue ubicar el patron AAA
 ![](./img/3.png)
 2.  (40%) Implemente la historia de usuario #1, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en consultaPaciente.xhtml.
 ![](./img/4.png)
+
 lo primero que se hizo es cambiar la contraseña ya que las creedenciales no son las correctas
 ![](./img/5.png)
+lo siguiente que se va hacer es relacionar la base de datos con las entidades del metodo.
+vamos a el archivo "PacienteMapper.xml" y nos damos cuenta que la primera parte y la relacion esta correcta
+
+![](./img/6.png)
+![](./img/7.png)
+
+para realizar la consulta: Poder consultar un paciente a partir de su número y tipo de identificación.
+vamos a utilizar el select que ya esta implementado y vamos a completar lo que falte.
+![](./img/8.png)
+luego completamos la intefaz DAO dependiendo de los metodos antes vistos en los servicios del paciente
+![](./img/9.png)
+![](./img/10.png)
+![](./img/11.png)
+![](./img/12.png)
+y realizamos la relacion entre la entidad y la base de datos
+![](./img/14.png)
+![](./img/15.png)
+para hacer el front se llama solo metodos del been lo que haremos es hacer los metodos en el been llamando a los metodos que estan en servicios pacientes
+![](./img/13.png)
+el siguiente paso es mejorar el front
 
 3.  (40%)Implemente la historia de usuario #2, agregando todo lo que haga falta en la capa de presentación, lógica y de persistencia. La vista debe implementarse en consultarMenoresEnfermedadContagiosa.xhtml.
 
-
-## Entrega
-
-1. Documentar la solución en Readme de Git.
-
-## Bono
-
-Si después de realizado el parcial, de forma INDIVIDUAL encuentra defectos menores (que impliquen a lo sumo cambiar 5 líneas de código), y que al corregirlos permiten que los puntos 2 o 3 funcionen:
-
-1. Haga los ajustes en su código.
-
-2. Haga un nuevo commit con el mensaje "entrega bono, ahora funciona el Punto XX" , donde XX es el punto que se corrigió. 
-
-3. Ejecute:
-
-    ```bash
-    $ git diff --stat HEAD HEAD^^
-    ```
-
-4. Si el resultado del comando anterior es menor o igual a 10, puede aplicar al bono.
-
-5. Comprima la nueva versión siguiendo el esquema indicado en el parcial, y súbalo a más tardar el 24 de Marzo a las 11:59pm en el espacio correspondiente.
+se realizara la implementacion en paciente bean para asi tener la relacion con el front
+![](./img/16.png)
+luego vamos a realizar los cambios en el front
 

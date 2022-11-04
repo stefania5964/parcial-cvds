@@ -5,12 +5,26 @@
       xmlns:o="http://omnifaces.org/ui"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Consulta de Pacientes</title>
+        <title>plataforma secretaría de salud </title>
     </h:head>
     <h:body>
         <h1>Consulta de menores que han padecido enfermedad contagiosa</h1>
         <h:form>
-
+            <p:commandButton action="#{mb.ObtenerContagiados()}" update="contagios" value="Consultar"/>
+            <p:dataTable id="contagios" var="contagios" value="#{mb.ObtenerMenoresContagiados()}">
+                <f:facet name="header">
+                    Niños con probabilidad de ser positivo
+                </f:facet>
+                <p:column headerText="# identificacion">
+                    <h:outputText value="#{contagioso.getId()}" />
+                </p:column>
+                <p:column headerText="Tipo de Identificación">
+                    <h:outputText value="#{contagioso.getTipo_id()}" />
+                </p:column>
+                <p:column headerText="Fecha de nacimiento">
+                    <h:outputText value="#{contagioso.getFechaNacimiento()}" />
+                </p:column>
+            </p:dataTable>
         </h:form>
     </h:body>
 </html>

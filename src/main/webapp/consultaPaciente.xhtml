@@ -6,18 +6,32 @@
       xmlns:o="http://omnifaces.org/ui"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title></title>
+        <title>Pagina Para Pacientes</title>
     </h:head>
     <h:body>
-        <h1>TITULO</h1>
+        <h1>consultar un paciente</h1>
         <h:form>
             <!--Por favor no cambiar el 'id':-->
-            <p:inputText id="identificacion_paciente"></p:inputText>
+            <p:inputText id="identificacion_paciente" binding="#{input}"/>
             <p:selectOneMenu value="#{mb.tipoIdentificacion}" >
                 <f:selectItems value="#{mb.tiposIdentificacion}" />
             </p:selectOneMenu>
             <!--Por favor no cambiar el 'value':-->
-            <p:commandButton value="Consultar"></p:commandButton>
+            <p:commandButton action="#{mb.obtenerPaciente(input.value)}" update="consulta" value="Consultar"/>
+            <p:dataTable id="consulta" var="consulta" value="#{mb.ObtenerPacienteSeleccionado().getConsultas()}">
+                <f:facet name="header">
+                    Consultas de #{mb.ObtenerPacienteSeleccionado().getNombre()}, Fecha de Nacimiento: #{mb.ObtenerPacienteSeleccionado().getFechaNacimiento()}
+                </f:facet>
+                <p:column headerText="id Consulta">
+                    <h:outputText value="#{consulta.getId()}" />
+                </p:column>
+                <p:column headerText="Fecha de la consulta">
+                    <h:outputText value="#{consulta.getFechayHora()}" />
+                </p:column>
+                <p:column headerText="consulta">
+                    <h:outputText value="#{consulta.getResumen()}" />
+                </p:column>
+            </p:dataTable>
         </h:form>
     </h:body>
 </html>
