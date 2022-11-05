@@ -85,3 +85,5 @@ se realizara la implementacion en paciente bean para asi tener la relacion con e
 ![](./img/16.png)
 luego vamos a realizar los cambios en el front
 
+y se realizaron pruebas
+![](./img/17.png)
