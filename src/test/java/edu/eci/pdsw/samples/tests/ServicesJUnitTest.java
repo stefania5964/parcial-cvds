@@ -87,20 +87,21 @@ public class ServicesJUnitTest {
         /**se crea el paciente*/
         Paciente pruebaPaciente = new Paciente(9876, TipoIdentificacion.TI,"Carmenzo",new Date(805352400000L));
         /**se crea la consulta*/
-        Consulta pruebaConsulta = new Consulta(new Date(1220227200),"varicela" );
+        Consulta pruebaConsulta = new Consulta(Date.valueOf("2001-01-01"),"Gracias" );
         /**se cambia el id de la consulta por el que nos dan arriba*/
-        pruebaConsulta.setId(1262218);
-
         List<Consulta>consultas = new ArrayList<>();
+        pruebaConsulta.setId(1262218);
         /**se añade la consulta ya que es de una de los dos tipos o varicela o hepatitis*/
         consultas.add(pruebaConsulta);
         pruebaPaciente.setConsultas(consultas);
         //ACT
         /** se busca el paciente por su id*/
         Paciente paciente = ServiciosPacientesFactory.getInstance().getTestingForumServices().consultarPacientesPorId(9876, TipoIdentificacion.TI);
+
         //assert ...
-        Assert.fail("Pruebas no implementadas aun...");
-        assertEquals(pruebaPaciente, paciente);
+        String p = paciente.toString();
+        String pe = pruebaPaciente.toString();
+        assertEquals(pe,p);
     }
 
 
